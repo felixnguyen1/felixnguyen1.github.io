@@ -34,3 +34,9 @@
 #underline {
     text-decoration: underline;
 }
+
+#aboutmetext {
+    text-align: left;
+    color: white;
+    font-size:14px;
+}
