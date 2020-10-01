@@ -20,10 +20,13 @@
         }
 
         #left_pane {
-            background-color: darkblue;
+            background-color: black;
             height: 100%;
             width: 56%;
             float: left;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         #right_pane {
@@ -34,16 +37,36 @@
         }
 
 
-        #storytext {
+        #story_text {
             background-color: white;
             height: 80%;
         }
 
-        #button {
+        #button_choices {
+            background-color: darkblue;
+            height: 20%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
+        #story_img {
+            max-height: 100%;
+            max-width: 100%;
+            width: auto;
+            height: auto;
         }
 
 
+        .buttons {
+            text-decoration: none;
+            color: white;
+            background-color: black;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 16px;
+            margin: 10px;
+        }
 
     </style>
 
@@ -69,12 +92,25 @@
 
         <div id="container">
             <div id="left_pane">
+                <img id ="story_img" src="images/fullstick_figure.png"/>
+
 
             </div>
 
             <div id="right_pane">
-                <div id="storytext"></div>
-                <div id="button"></div>
+                <div id="story_text">
+                    <p><b>Hungry Decisions (McDonald's Edition)</b></p>
+
+                    <p> <-- This is Michael. Michael is very hungry.</p>
+                    <p> Choose a option below! </p>
+                </div>
+                <div id="button_choices">
+
+                    <a class="buttons" href="#">Yes</a>
+                    <a class="buttons" href="#">No</a>
+                
+                
+                </div>
             </div>
 
         </div>
