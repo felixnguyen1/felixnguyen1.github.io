@@ -136,10 +136,35 @@
                 b2.innerHTML = "Get McDonald's from UberEats.";
                 b3.style.display = "none";
                 b4.style.display = "none";
-                p1.innerHTML = "Welcome to Hungry Decisions. Year - 2020. Your name is Michael.";
+                p1.innerHTML = "Welcome to Hungry Life. Year - 2020. Your name is Michael.";
                 p2.innerHTML = "Choose a option below!"
                 p3.innerHTML = "Walk or order from UberEats"
             }
+
+            function walkToMcDonalds(){
+                img.src="images/.jpg";
+                p1.innerHTML = "";
+                b1.innerHTML = "";
+                
+            }
+
+            //////State Machine
+            function bclick(button){
+                if (state == "intro"){
+                    if(button == 1){
+                        walkToMcDonalds();
+                        state= "walkToMcDonalds";
+
+                    }
+                    else if(button == 2){
+                        getMcDonaldsFromUberEats();
+                        state= "getMcDonaldsFromUberEats";
+                    }
+                }
+
+
+            }
+
 
 
         </script>
