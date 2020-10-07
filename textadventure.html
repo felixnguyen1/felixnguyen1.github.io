@@ -30,7 +30,7 @@
         }
 
         #right_pane {
-            background-color: red;
+            background-color: darkgray;
             height: 100%;
             width: 44%;
             float: right;
@@ -43,7 +43,7 @@
         }
 
         #button_choices {
-            background-color: darkblue;
+            background-color: darkgray;
             height: 20%;
             display: flex;
             align-items: center;
@@ -102,7 +102,7 @@
                     <p><b>Hungry Decisions (McDonald's Edition)</b></p>
 
                     <p id="p1"> <-- This is Michael. Michael is very hungry.</p>
-                    <p id="p2"> Choose a option below! </p>
+                    <p id="p2"> Decide with your options! </p>
                     <p id="p3"> Question </p>
                 </div>
                 <div id="button_choices">
@@ -131,23 +131,33 @@
             intro();
 
             function intro(){
-                img.src = "images/.jpg";
-                b1.innerHTML = "Walk to McDonald's.";
-                b2.innerHTML = "Get McDonald's from UberEats.";
+                img.src = "images/fullstick_figure.png";
+                b1.innerHTML = "Walk to McDonalds.";
+                b2.innerHTML = "Get McDonalds from UberEats.";
                 b3.style.display = "none";
                 b4.style.display = "none";
-                p1.innerHTML = "Welcome to Hungry Life. Year - 2020. Your name is Michael.";
-                p2.innerHTML = "Choose a option below!"
-                p3.innerHTML = "Walk or order from UberEats"
+                p1.innerHTML = "Welcome to Hungry Decisions.The year is 2020. Your name is Michael. You are hungry and want to eat McDonalds.";
+                p2.innerHTML = "Decide what you will do!";
+                p3.innerHTML = "Walk or order from UberEats?";
             }
 
             function walkToMcDonalds(){
-                img.src="images/.jpg";
-                p1.innerHTML = "";
-                b1.innerHTML = "";
+                img.src="images/mcdonalds_store.jpg";
+                p1.innerHTML = "You chose to walk to McDonalds. You arrive 15 minutes later. You look at menu.";
+                p3.innerHTML = "Go with Burger and fries or go for chicken nuggets?"
+                b1.innerHTML = "Get Burger and Fries";
+                b2.innerHTML = "Get Chicken Nuggets";
                 
             }
 
+
+            function getBurgerAndFries(){
+                img.src="images/burger.jpg";
+                p1.innerHTML = "You got a burger and some fries. You finish eating.";
+                p3.innerHTML = "Go home or stay at McDonalds?"
+                b1.innerHTML = "Go home";
+                b2.innerHTML = "Stay at McDonalds";
+            }
             //////State Machine
             function bclick(button){
                 if (state == "intro"){
@@ -161,7 +171,17 @@
                         state= "getMcDonaldsFromUberEats";
                     }
                 }
+                else if(state =="walkToMcDonalds"){
+                    if (button == 1){
+                        getBurgerAndFries();
+                        state = "getBurgerAndFries"
+                    }
 
+                    else if (button == 2){
+                        getChickenNuggets();
+                        state = "getChickenNuggets"
+                    }
+                }
 
             }
 
