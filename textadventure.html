@@ -74,19 +74,19 @@
 
         <ul class="navbar">
             <li><a href="index.html">Home</a></li>
-            <li class="active"><a href="resume.html">Resume</a></li>
+            <li><a href="resume.html">Resume</a></li>
             <li><a href="contactme.html">Contact me</a></li>
             <li><a href="aboutme.html">About me </a></li>
             <li class="dropdown">
-                <a href="#">Projects</a>
+                <a class ="active" href="#">Projects</a>
                 <ul class="dropdown-content">
-                    <li><a href="textadventure.html">Text Adventure</a></li>
+                    <li class="active"><a href="textadventure.html">Text Adventure</a></li>
                     <li><a href="#">Project 2</a></li>
                     <li><a href="#">Project 3</a></li>
                     <li><a href="#">Project 4</a></li>
                     <li><a href="#">Project 5</a></li>
                 </ul>
-            </li>
+             </li>
             <li id="name"><a>Felix Nguyen</a></li>
         </ul>
 
@@ -154,10 +154,45 @@
             function getBurgerAndFries(){
                 img.src="images/burger.jpg";
                 p1.innerHTML = "You got a burger and some fries. You finish eating.";
-                p3.innerHTML = "Go home or stay at McDonalds?"
+                p3.innerHTML = "Go home or stay at McDonalds?";
                 b1.innerHTML = "Go home";
                 b2.innerHTML = "Stay at McDonalds";
             }
+
+            function getChickenNuggets(){
+                img.src="images/chickennuggets.jpg";
+                p1.innerHTML = "You got some chicken nuggets. You finish eating.";
+                p3.innerHTML = "Go home or stay at McDonalds?";
+                b1.innerHTML = "Go home";
+                b2.innerHTML = "Stay at McDonalds";
+            }
+
+            function orderMilkshake(){
+                img.src="images/milkshake.jpg";
+                p1.innerHTML = "You order a milkshake. Twenty minutes later, your milkshake shows up. You drink it. YOU DIED!";
+                p2.innerHTML = "You reached the death pathway. You Died. Would you like to play again?";
+                p3.innerHTML = "Re-play McDonald's Adventure for more pathways.";
+                b1.innerHTML = "Restart Adventure";
+                b2.style.display = "none";
+            }
+
+            function orderABurgerAndDrink(){
+                img.src="images/burgeranddrink.png";
+                p1.innerHTML = "You order a burger and drink from McDonalds.. Twenty minutes later, your burger and drink shows up. You eat your burger and finish your drink. You are tired from your meal and go to bed.";
+                p2.innerHTML = "You reached the happy/sleepy pathway. Would you like to play again?";
+                p3.innerHTML = "Re-play McDonald's Adventure for other pathways.";
+                b1.innerHTML = "Go to bed (Restart Adventure)";
+                b2.style.display = "none";
+            }
+
+            function getMcDonaldsFromUberEats(){
+                img.src="images/ubereats.png";
+                p1.innerHTML = "You decide to order from UberEats.";
+                p3.innerHTML = "Order a burger and drink or order a milkshake.";
+                b1.innerHTML = "Order a milkshake";
+                b2.innerHTML = "Order a burger and drink"
+            }
+
             //////State Machine
             function bclick(button){
                 if (state == "intro"){
@@ -174,15 +209,27 @@
                 else if(state =="walkToMcDonalds"){
                     if (button == 1){
                         getBurgerAndFries();
-                        state = "getBurgerAndFries"
+                        state = "getBurgerAndFries";
                     }
 
                     else if (button == 2){
                         getChickenNuggets();
-                        state = "getChickenNuggets"
+                        state = "getChickenNuggets";
                     }
                 }
+                else if (state == "getMcDonaldsFromUberEats"){
+                    if (button == 1){
+                        orderMilkshake();
+                        state = "orderMilkshake";
+                    }
+                    else if (button == 2){
+                        orderABurgerAndDrink();
+                        state = "orderABurgerAndDrink";
+                    }
+                        
 
+                        
+                }
             }
 
 
