@@ -109,8 +109,6 @@
 
                     <a id="b1" class="buttons" href="#" onclick="bclick(1)">Yes</a>
                     <a id="b2" class="buttons" href="#" onclick="bclick(2)">No</a>
-                    <a id="b3" class="buttons" href="#" onclick="bclick(3)">Yes</a>
-                    <a id="b4" class="buttons" href="#" onclick="bclick(4)">No</a>
                 
                 </div>
             </div>
@@ -132,10 +130,8 @@
 
             function intro(){
                 img.src = "images/fullstick_figure.png";
-                b1.innerHTML = "Walk to McDonalds.";
-                b2.innerHTML = "Get McDonalds from UberEats.";
-                b3.style.display = "none";
-                b4.style.display = "none";
+                b1.innerHTML = "Walk to McDonalds";
+                b2.innerHTML = "Get McDonalds from UberEats";
                 p1.innerHTML = "Welcome to Hungry Decisions.The year is 2020. Your name is Michael. You are hungry and want to eat McDonalds.";
                 p2.innerHTML = "Decide what you will do!";
                 p3.innerHTML = "Walk or order from UberEats?";
@@ -161,15 +157,16 @@
 
             function getChickenNuggets(){
                 img.src="images/chickennuggets.jpg";
-                p1.innerHTML = "You got some chicken nuggets. You finish eating.";
-                p3.innerHTML = "Go home or stay at McDonalds?";
+                p1.innerHTML = "You got chicken nuggets.";
+                p2.innerHTML = "";
+                p3.innerHTML = "You go home after you payed for your chicken nuggets.";
                 b1.innerHTML = "Go home";
-                b2.innerHTML = "Stay at McDonalds";
+                b2.style.display = "none";
             }
 
             function orderMilkshake(){
                 img.src="images/milkshake.jpg";
-                p1.innerHTML = "You order a milkshake. Twenty minutes later, your milkshake shows up. You drink it. YOU DIED!";
+                p1.innerHTML = "You order a milkshake. Twenty minutes later, your milkshake shows up. You drink it. YOU DIE! Michael forgot he was lactose-intolerant. His doctor had told him the week before that a little bit of dairy products could kill him.";
                 p2.innerHTML = "You reached the death pathway. You Died. Would you like to play again?";
                 p3.innerHTML = "Re-play McDonald's Adventure for more pathways.";
                 b1.innerHTML = "Restart Adventure";
@@ -192,6 +189,34 @@
                 b1.innerHTML = "Order a milkshake";
                 b2.innerHTML = "Order a burger and drink"
             }
+
+            function goHome(){
+                img.src="images/sidewalk.jpg";
+                p1.innerHTML = "You walk home after you pay for your burger. You encounter a homeless man. He yells at you to give your McDonalds to him. You shake your head signalling no. The man charges at you and takes your burger.";
+                p3.innerHTML = "Fight back or walk home empty-handed?";
+                b1.innerHTML = "Fight back";
+                b2.innerHTML = "Walk home";
+            }
+ 
+            function stayAtMcDonalds(){
+                img.src="images/mcdonaldsinterior.jpg";
+                p1.innerHTML = "You decide to stay at McDonalds. You browse through your phone. A couple of hours later. You go home.";
+                p2.innerHTML = "You reached the happy pathway."
+                p3.innerHTML = "Re-play McDonald's Adventure for more pathways.";
+                b1.innerHTML = "Restart adventure";
+                b2.style.display = "none";
+            }
+
+            function fightBack(){
+                img.src="images/injured.jpg";
+                p1.innerHTML = "You";
+                p2.innerHTML = "You reached the unlucky/alnernate pathway."
+                p3.innerHTML = "Re-play McDonald's Adventure for more pathways.";
+                b1.innerHTML = "Restart adventure";
+                
+            }
+
+
 
             //////State Machine
             function bclick(button){
@@ -226,10 +251,43 @@
                         orderABurgerAndDrink();
                         state = "orderABurgerAndDrink";
                     }
-                        
-
-                        
                 }
+                else if (state == "getBurgerAndFries"){
+                    if (button == 1){
+                        goHome();
+                        state = "goHome";
+                    }
+                    else if (button == 2){
+                        stayAtMcDonalds();
+                        state = "stayAtMcDonalds";
+                    }
+                }
+                else if (state == "getChickenNuggets"){
+                    if (button == 1){
+                        goHome();
+                        state = "goHome";
+                    }
+                }
+
+                else if (state == "orderMilkshake"){
+                    if (button == 1){
+                        intro();
+                        state = "intro";
+                    }
+                }
+                else if (state == "orderABurgerAndDrink"){
+                    if (button == 1){
+                        intro();
+                        state = "intro";
+                    }
+                }
+                else if (state == "stayAtMcDonalds"){
+                    if (button == 1){
+                        intro();
+                        state = "intro";
+                    }
+                }
+
             }
 
 
