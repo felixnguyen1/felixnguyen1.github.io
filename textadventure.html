@@ -68,6 +68,8 @@
             margin: 10px;
         }
 
+        
+
     </style>
 
     <body class="resumebody">
@@ -161,7 +163,7 @@
                 p2.innerHTML = "";
                 p3.innerHTML = "You go home after you payed for your chicken nuggets.";
                 b1.innerHTML = "Go home";
-                b2.style.display = "none";
+                b2.innerHTML = "";
             }
 
             function orderMilkshake(){
@@ -170,16 +172,16 @@
                 p2.innerHTML = "You reached the death pathway. You Died. Would you like to play again?";
                 p3.innerHTML = "Re-play McDonald's Adventure for more pathways.";
                 b1.innerHTML = "Restart Adventure";
-                b2.style.display = "none";
+                b2.innerHTML = "";
             }
 
             function orderABurgerAndDrink(){
                 img.src="images/burgeranddrink.png";
-                p1.innerHTML = "You order a burger and drink from McDonalds.. Twenty minutes later, your burger and drink shows up. You eat your burger and finish your drink. You are tired from your meal and go to bed.";
+                p1.innerHTML = "You order a burger and drink from McDonalds. Twenty minutes later, your burger and drink shows up. You eat your burger and finish your drink. You are tired from your meal and go to bed.";
                 p2.innerHTML = "You reached the happy/sleepy pathway. Would you like to play again?";
                 p3.innerHTML = "Re-play McDonald's Adventure for other pathways.";
                 b1.innerHTML = "Go to bed (Restart Adventure)";
-                b2.style.display = "none";
+                b2.innerHTML = "";
             }
 
             function getMcDonaldsFromUberEats(){
@@ -204,17 +206,29 @@
                 p2.innerHTML = "You reached the happy pathway."
                 p3.innerHTML = "Re-play McDonald's Adventure for more pathways.";
                 b1.innerHTML = "Restart adventure";
-                b2.style.display = "none";
+                b2.innerHTML = "";
             }
 
             function fightBack(){
                 img.src="images/injured.jpg";
-                p1.innerHTML = "You";
+                p1.innerHTML = "You were able to get your McDonalds back, but you are bruised and tired.";
                 p2.innerHTML = "You reached the unlucky/alnernate pathway."
                 p3.innerHTML = "Re-play McDonald's Adventure for more pathways.";
                 b1.innerHTML = "Restart adventure";
+                b2.innerHTML = "";
                 
             }
+
+            function walkHome(){
+                img.src="images/house.jpg";
+                p1.innerHTML = "You walk home empty-handed. ";
+                p2.innerHTML = "You reached the unlucky/alnertivae pathway."
+                p3.innerHTML = "Restart Adventure to get other pathway/choices.";
+                b1.innerHTML = "Restart Adventure";
+                b2.innerHTML = "";
+
+            }
+            
 
 
 
@@ -268,6 +282,16 @@
                         state = "goHome";
                     }
                 }
+                else if (state == "goHome"){
+                    if (button == 1){
+                        fightBack();
+                        state = "fightBack";
+                    }
+                    else if (button == 2){
+                        walkHome();
+                        state = "walkHome";
+                    }
+                }
 
                 else if (state == "orderMilkshake"){
                     if (button == 1){
@@ -275,6 +299,7 @@
                         state = "intro";
                     }
                 }
+                
                 else if (state == "orderABurgerAndDrink"){
                     if (button == 1){
                         intro();
@@ -287,7 +312,18 @@
                         state = "intro";
                     }
                 }
-
+                else if (state == "fightBack"){
+                    if (button == 1){
+                        intro();
+                        state = "intro";
+                    }
+                }
+                else if (state == "walkHome"){
+                    if (button == 1){
+                        intro();
+                        state = "intro";
+                    }
+                }
             }
 
 
