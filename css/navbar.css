@@ -22,6 +22,7 @@
                 background-color: red;
             }
 
+
             .dropdown-content li{
                 float: none;
             }
@@ -42,11 +43,11 @@
                 background-color: red;
             }
 
+            
+
            #name {
                float: right;
 
            }
 
-           .navbar #name:hover {
-               background-color: none;
-           }
+        
